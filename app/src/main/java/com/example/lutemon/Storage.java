@@ -8,11 +8,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Storage extends AppCompatActivity {
     private static Storage instance;
-    private HashMap<Integer, String> lutemons = new HashMap<>();
+    private HashMap<Integer, Lutemon> lutemons = new HashMap<>();
 
 
     @Override
@@ -27,7 +28,7 @@ public class Storage extends AppCompatActivity {
         });
     }
 
-
+    private Storage() {}
     public static Storage getInstance() {
         if (instance == null) {
             instance = new Storage();
@@ -36,12 +37,14 @@ public class Storage extends AppCompatActivity {
     }
 
     public void addLutemon(Lutemon lutemon) {
-        lutemons.put(lutemon.id, lutemon.name);
+        lutemons.put(lutemon.id, lutemon);
     }
 
-    public String getLutemon(int id) {
+    public Lutemon getLutemons(int id) {
         return lutemons.get(id);
     }
 
-
+    public ArrayList<Lutemon> getLutemons() {
+        return new ArrayList<>(lutemons.values());
+    }
 }

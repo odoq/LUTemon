@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
+        android:onClick="switchToAddLutemon"
         android:text="Lisää uusi Lutemon"
         app:layout_constraintBottom_toTopOf="@+id/listLutemonbtn"
         app:layout_constraintEnd_toEndOf="parent"

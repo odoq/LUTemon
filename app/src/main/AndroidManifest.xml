@@ -21,7 +21,7 @@
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".Storage"
+            android:name=".LutemonListActivity"
             android:exported="false" />
         <activity
             android:name=".Lutemon"

@@ -25,7 +25,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void switchToListLutemon(View view) {
-        Intent intent = new Intent(this, Storage.class);
+        Intent intent = new Intent(this, LutemonListActivity.class);
+        startActivity(intent);
+    }
+
+    public void switchToAddLutemon(View view) {
+        Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
 

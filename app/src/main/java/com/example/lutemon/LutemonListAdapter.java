@@ -15,7 +15,7 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
 
-    public LutemonListAdapter(Context context) {
+    public LutemonListAdapter(Context context, ArrayList<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = lutemons;
     }
