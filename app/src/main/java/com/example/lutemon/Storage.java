@@ -8,7 +8,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.HashMap;
+
 public class Storage extends AppCompatActivity {
+    HashMap<Integer, String> lutemons = new HashMap<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
