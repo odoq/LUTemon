@@ -34,23 +34,27 @@ public class Home extends AppCompatActivity {
 
         addName = findViewById(R.id.txtAddName);
         String name = addName.getText().toString();
-        int id = 1;
 
         RadioGroup rgLutemonColor = findViewById(R.id.rgColors);
         int selectedId = rgLutemonColor.getCheckedRadioButtonId();
 
 
         if (selectedId == R.id.rbWhite) {
-            Storage.getInstance().addLutemon(new White(name, id));
+            Storage.getInstance().addLutemon(new White(name, idCounter));
+            idCounter++;
         } else if (selectedId == R.id.rbGreen) {
-            Storage.getInstance().addLutemon(new Green(name, id));
+            Storage.getInstance().addLutemon(new Green(name, idCounter));
+            idCounter++;
         } else if (selectedId == R.id.rbPink) {
-            Storage.getInstance().addLutemon(new Pink(name, id));
+            Storage.getInstance().addLutemon(new Pink(name, idCounter));
+            idCounter++;
         } else if (selectedId == R.id.rbOrange) {
-            Storage.getInstance().addLutemon(new Orange(name, id));
+            Storage.getInstance().addLutemon(new Orange(name, idCounter));
+            idCounter++;
         } else if (selectedId == R.id.rbBlack) {
-            Storage.getInstance().addLutemon(new Black(name, id));
+            Storage.getInstance().addLutemon(new Black(name, idCounter));
+            idCounter++;
         }
-        idCounter++;
+
     }
 }
