@@ -43,7 +43,7 @@ public class Lutemon extends AppCompatActivity {
         this.maxHealth = maxHealth;
         this.id = id;
     }
-
+    /*
     public Defence(lutemon : Lutemon) {
 
 
@@ -52,5 +52,33 @@ public class Lutemon extends AppCompatActivity {
     public Attack () {
 
 
+    }
+    */
+    public String getColor() {
+        return color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getDefence() {
+        return defence;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public int getExperience() {
+        return experience;
     }
 }

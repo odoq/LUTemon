@@ -11,7 +11,8 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.HashMap;
 
 public class Storage extends AppCompatActivity {
-    HashMap<Integer, String> lutemons = new HashMap<>();
+    private static Storage instance;
+    private HashMap<Integer, String> lutemons = new HashMap<>();
 
 
     @Override
@@ -25,4 +26,22 @@ public class Storage extends AppCompatActivity {
             return insets;
         });
     }
+
+
+    public static Storage getInstance() {
+        if (instance == null) {
+            instance = new Storage();
+        }
+        return instance;
+    }
+
+    public void addLutemon(Lutemon lutemon) {
+        lutemons.put(lutemon.id, lutemon.name);
+    }
+
+    public String getLutemon(int id) {
+        return lutemons.get(id);
+    }
+
+
 }

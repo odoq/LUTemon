@@ -1,6 +1,8 @@
 package com.example.lutemon;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void switchToListLutemon(View view) {
+        Intent intent = new Intent(this, Storage.class);
+        startActivity(intent);
+    }
 
 
 }
