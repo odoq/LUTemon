@@ -40,10 +40,6 @@ public class Storage extends AppCompatActivity {
         lutemons.put(lutemon.id, lutemon);
     }
 
-    public Lutemon getLutemons(int id) {
-        return lutemons.get(id);
-    }
-
     public ArrayList<Lutemon> getLutemons() {
         return new ArrayList<>(lutemons.values());
     }

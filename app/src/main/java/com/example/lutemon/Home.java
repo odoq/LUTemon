@@ -16,7 +16,7 @@ import java.util.jar.Attributes;
 public class Home extends AppCompatActivity {
 
     private TextView addName;
-    protected int id;
+    protected int idCounter = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +37,20 @@ public class Home extends AppCompatActivity {
         int id = 1;
 
         RadioGroup rgLutemonColor = findViewById(R.id.rgColors);
+        int selectedId = rgLutemonColor.getCheckedRadioButtonId();
 
-        if (rgLutemonColor.getCheckedRadioButtonId() == R.id.rbWhite) {
+
+        if (selectedId == R.id.rbWhite) {
             Storage.getInstance().addLutemon(new White(name, id));
-            id++;
-        } else if (rgLutemonColor.getCheckedRadioButtonId() == R.id.rbGreen) {
+        } else if (selectedId == R.id.rbGreen) {
             Storage.getInstance().addLutemon(new Green(name, id));
-            id++;
-        } else if (rgLutemonColor.getCheckedRadioButtonId() == R.id.rbPink) {
+        } else if (selectedId == R.id.rbPink) {
             Storage.getInstance().addLutemon(new Pink(name, id));
-            id++;
-        } else if (rgLutemonColor.getCheckedRadioButtonId() == R.id.rbOrange) {
+        } else if (selectedId == R.id.rbOrange) {
             Storage.getInstance().addLutemon(new Orange(name, id));
-            id++;
-        } else if (rgLutemonColor.getCheckedRadioButtonId() == R.id.rbBlack) {
+        } else if (selectedId == R.id.rbBlack) {
             Storage.getInstance().addLutemon(new Black(name, id));
-            id++;
         }
+        idCounter++;
     }
 }

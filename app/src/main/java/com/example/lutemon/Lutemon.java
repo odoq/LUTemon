@@ -18,7 +18,16 @@ public class Lutemon extends AppCompatActivity {
     protected int maxHealth;
     protected int id;
 
-    public Lutemon(String name, int id, int attack, int defence, int maxHealth, String white) {
+    public Lutemon(String name, int id, int attack, int defence, int maxHealth, String color) {
+        this.name = name;
+        this.id = id;
+        this.attack = attack;
+        this.defence = defence;
+        this.maxHealth = maxHealth;
+        this.health = maxHealth;
+        this.color = color;
+        this.experience = 0;
+
     }
 
     @Override
@@ -33,16 +42,6 @@ public class Lutemon extends AppCompatActivity {
         });
     }
 
-    public Lutemon(String name, String color, int attack, int defence, int experience, int health, int maxHealth, int id) {
-        this.name = name;
-        this.color = color;
-        this.attack = attack;
-        this.defence = defence;
-        this.experience = experience;
-        this.health = health;
-        this.maxHealth = maxHealth;
-        this.id = id;
-    }
     /*
     public Defence(lutemon : Lutemon) {
 
@@ -63,7 +62,7 @@ public class Lutemon extends AppCompatActivity {
     }
 
     public int getAttack() {
-        return attack;
+        return attack + experience;
     }
 
     public int getDefence() {
