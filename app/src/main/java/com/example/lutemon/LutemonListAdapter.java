@@ -1,5 +1,6 @@
 package com.example.lutemon;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,14 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@SuppressLint("NotifyDataSetChanged")
 public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> {
 
     private Context context;
+    private String mode;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
 
-    public LutemonListAdapter(Context context, ArrayList<Lutemon> lutemons) {
+    public LutemonListAdapter(Context context, ArrayList<Lutemon> lutemons, String mode) {
         this.context = context;
         this.lutemons = lutemons;
+        this.mode = mode;
     }
 
     @NonNull
@@ -28,15 +32,25 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position) {
-        holder.lutemonName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getColor() + ")");
-        holder.lutemonAttack.setText("Hyökkäys: " + String.valueOf(lutemons.get(position).getAttack()));
-        holder.lutemonDefence.setText("Puolustus: " + String.valueOf(lutemons.get(position).getDefence()));
-        holder.lutemonHealth.setText("Elämä: " + String.valueOf(lutemons.get(position).getHealth()) +"/"+String.valueOf(lutemons.get(position).getMaxHealth()));
-        holder.lutemonExp.setText("Kokemus: " + String.valueOf(lutemons.get(position).getExperience()));
+        Lutemon lutemon = lutemons.get(position);
+
+        holder.lutemonName.setText(lutemon.getName() + " (" + lutemon.getColor() + ")");
+        holder.lutemonAttack.setText("Hyökkäys: " + lutemon.getAttack());
+        holder.lutemonDefence.setText("Puolustus: " + lutemon.getDefence());
+        holder.lutemonHealth.setText("Elämä: " + lutemon.getHealth() + "/" + lutemon.getMaxHealth());
+        holder.lutemonExp.setText("Kokemus: " + lutemon.getExperience());
+
+        holder.trainButton.setOnClickListener(v -> {
+            TrainingArea.getInstance().train(lutemon);
+            notifyDataSetChanged();
+        });
     }
 
-    @Override
     public int getItemCount() {
         return lutemons.size();
     }
+
+
 }
+
+

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LUTemon">
         <activity
+            android:name=".activity_training"
+            android:exported="false" />
+        <activity
             android:name=".BattleField"
             android:exported="false" />
         <activity

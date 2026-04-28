@@ -1,32 +1,24 @@
 package com.example.lutemon;
 
-import android.content.Context;
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class LutemonListActivity extends AppCompatActivity {
-    private Context context;
+import android.os.Bundle;
 
-    private Storage storage;
-    private RecyclerView recyclerView;
+public class TrainingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_storage);
+        setContentView(R.layout.activity_training);
 
-        storage = Storage.getInstance();
-
-        recyclerView = findViewById(R.id.rvLutemonList);
+        RecyclerView recyclerView = findViewById(R.id.recyclerTraining);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new LutemonListAdapter(
                 this,
-                storage.getLutemons(),
-                "list"
+                Storage.getInstance().getLutemons(),
+                "training"
         ));
-
     }
 }

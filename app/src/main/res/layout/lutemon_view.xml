@@ -19,6 +19,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/trainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Treenaa" />
+
         <TextView
             android:id="@+id/txtLutName"
             android:layout_width="match_parent"

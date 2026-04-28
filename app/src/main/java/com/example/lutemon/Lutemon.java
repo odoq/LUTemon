@@ -80,4 +80,8 @@ public class Lutemon extends AppCompatActivity {
     public int getExperience() {
         return experience;
     }
+
+    public void train() {
+        this.experience++;
+    }
 }
