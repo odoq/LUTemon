@@ -33,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
+    public void switchToBattleArena(View view) {
+        Intent intent = new Intent(this, BattleActivity.class);
+        startActivity(intent);
+    }
+
 
 
 }

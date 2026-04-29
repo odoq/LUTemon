@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 @SuppressLint("NotifyDataSetChanged")
 public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> {
@@ -27,7 +26,8 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
     @NonNull
     @Override
     public LutemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LutemonViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_view, parent, false));
+        return new LutemonViewHolder(LayoutInflater.from(context)
+                .inflate(R.layout.lutemon_view, parent, false));
     }
 
     @Override
@@ -40,17 +40,34 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
         holder.lutemonHealth.setText("Elämä: " + lutemon.getHealth() + "/" + lutemon.getMaxHealth());
         holder.lutemonExp.setText("Kokemus: " + lutemon.getExperience());
 
-        holder.trainButton.setOnClickListener(v -> {
-            TrainingArea.getInstance().train(lutemon);
-            notifyDataSetChanged();
-        });
+
+        if (mode.equals("training")) {
+            holder.trainButton.setOnClickListener(v -> {
+                TrainingArea.getInstance().train(lutemon);
+                notifyDataSetChanged();
+            });
+        } else {
+            holder.trainButton.setVisibility(ViewGroup.GONE);
+        }
+
+        if (mode.equals("attacker")) {
+            holder.itemView.setOnClickListener(v -> {
+                ((BattleActivity) context).setAttacker(lutemon);
+            });
+        }
+
+        if (mode.equals("defender")) {
+            holder.itemView.setOnClickListener(v -> {
+                ((BattleActivity) context).setDefender(lutemon);
+            });
+        }
     }
 
+    @Override
     public int getItemCount() {
         return lutemons.size();
     }
-
-
 }
+
 
 
