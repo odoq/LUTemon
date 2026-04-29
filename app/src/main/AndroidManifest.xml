@@ -12,25 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LUTemon">
         <activity
+            android:name=".MoveLutemonsActivity"
+            android:exported="false" />
+        <activity
             android:name=".BattleActivity"
             android:exported="false" />
         <activity
-            android:name=".activity_training"
+            android:name=".TrainingActivity"
             android:exported="false" />
-        <activity
-            android:name=".BattleField"
-            android:exported="false" />
-        <activity
-            android:name=".TrainingArea"
-            android:exported="false" />
+
+
         <activity
             android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".LutemonListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Lutemon"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

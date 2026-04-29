@@ -32,7 +32,7 @@ public class BattleActivity extends AppCompatActivity {
         attackerList.setLayoutManager(new LinearLayoutManager(this));
         attackerList.setAdapter(new LutemonListAdapter(
                 this,
-                Storage.getInstance().getLutemons(),
+                Storage.getInstance().getLutemonsByLocation("battle"),
                 "attacker"
         ));
 
@@ -40,7 +40,7 @@ public class BattleActivity extends AppCompatActivity {
         defenderList.setLayoutManager(new LinearLayoutManager(this));
         defenderList.setAdapter(new LutemonListAdapter(
                 this,
-                Storage.getInstance().getLutemons(),
+                Storage.getInstance().getLutemonsByLocation("battle"),
                 "defender"
         ));
     }

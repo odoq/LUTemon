@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -37,6 +39,21 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BattleActivity.class);
         startActivity(intent);
     }
+
+    public void switchToMoveLutemon(View view) {
+        Intent intent = new Intent(this, MoveLutemonsActivity.class);
+        startActivity(intent);
+    }
+
+    public void switchToTraining(View view) {
+        Intent intent = new Intent(this, TrainingActivity.class);
+        startActivity(intent);
+    }
+
+    public ArrayList<Lutemon> getAllLutemons() {
+        return Storage.getInstance().getLutemons();
+    }
+
 
 
 

@@ -17,7 +17,7 @@ public class TrainingActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new LutemonListAdapter(
                 this,
-                Storage.getInstance().getLutemons(),
+                Storage.getInstance().getLutemonsByLocation("training"),
                 "training"
         ));
     }

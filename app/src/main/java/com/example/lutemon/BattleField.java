@@ -35,7 +35,7 @@ public class BattleField {
                 log.append(B.getName()).append(" kuoli!\n");
                 log.append(A.getName()).append(" voitti taistelun!");
 
-                Storage.getInstance().removeLutemon(B);
+                Storage.getInstance().setLocation(B, "dead");
 
                 return log.toString();
             }

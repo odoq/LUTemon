@@ -1,36 +1,18 @@
 package com.example.lutemon;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Storage extends AppCompatActivity {
+public class Storage {
+
     private static Storage instance;
-    private HashMap<Integer, Lutemon> lutemons = new HashMap<>();
+    private int idCounter = 1;
 
-
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_storage);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }
+    private final HashMap<Integer, Lutemon> lutemons = new HashMap<>();
+    private final HashMap<Integer, String> locations = new HashMap<>();
 
     private Storage() {}
+
     public static Storage getInstance() {
         if (instance == null) {
             instance = new Storage();
@@ -38,13 +20,36 @@ public class Storage extends AppCompatActivity {
         return instance;
     }
 
+    public int getNextId() {
+        return idCounter++;
+    }
+
+    public void setLocation(Lutemon l, String place) {
+        locations.put(l.id, place);
+    }
+
+    public String getLocation(Lutemon l) {
+        return locations.getOrDefault(l.id, "home");
+    }
+
+    public ArrayList<Lutemon> getLutemonsByLocation(String place) {
+        ArrayList<Lutemon> result = new ArrayList<>();
+        for (Lutemon l : lutemons.values()) {
+            if (getLocation(l).equals(place)) {
+                result.add(l);
+            }
+        }
+        return result;
+    }
+
     public void addLutemon(Lutemon lutemon) {
         lutemons.put(lutemon.id, lutemon);
     }
-    public void removeLutemon(Lutemon lutemon) {
-        lutemons.remove(lutemon);
-    }
 
+    public void removeLutemon(Lutemon lutemon) {
+        lutemons.remove(lutemon.id);
+        locations.remove(lutemon.id);
+    }
 
     public ArrayList<Lutemon> getLutemons() {
         return new ArrayList<>(lutemons.values());

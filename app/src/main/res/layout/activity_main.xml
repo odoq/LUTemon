@@ -39,6 +39,19 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="Siirrä Lutemoneja"
+        android:onClick="switchToMoveLutemon"
+        app:layout_constraintBottom_toTopOf="@+id/trainLutemonbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/trainLutemonbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Treenaa Lutemoneja"
+        android:onClick="switchToTraining"
         app:layout_constraintBottom_toTopOf="@+id/battleLutemonbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

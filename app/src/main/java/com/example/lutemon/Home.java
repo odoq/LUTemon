@@ -11,12 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.jar.Attributes;
-
 public class Home extends AppCompatActivity {
 
     private TextView addName;
-    protected int idCounter = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +35,19 @@ public class Home extends AppCompatActivity {
         RadioGroup rgLutemonColor = findViewById(R.id.rgColors);
         int selectedId = rgLutemonColor.getCheckedRadioButtonId();
 
+        Storage storage = Storage.getInstance();
+        int id = storage.getNextId();
 
         if (selectedId == R.id.rbWhite) {
-            Storage.getInstance().addLutemon(new White(name, idCounter));
-            idCounter++;
+            storage.addLutemon(new White(name, id));
         } else if (selectedId == R.id.rbGreen) {
-            Storage.getInstance().addLutemon(new Green(name, idCounter));
-            idCounter++;
+            storage.addLutemon(new Green(name, id));
         } else if (selectedId == R.id.rbPink) {
-            Storage.getInstance().addLutemon(new Pink(name, idCounter));
-            idCounter++;
+            storage.addLutemon(new Pink(name, id));
         } else if (selectedId == R.id.rbOrange) {
-            Storage.getInstance().addLutemon(new Orange(name, idCounter));
-            idCounter++;
+            storage.addLutemon(new Orange(name, id));
         } else if (selectedId == R.id.rbBlack) {
-            Storage.getInstance().addLutemon(new Black(name, idCounter));
-            idCounter++;
+            storage.addLutemon(new Black(name, id));
         }
 
     }
