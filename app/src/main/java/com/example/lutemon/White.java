@@ -7,5 +7,7 @@ public class White extends Lutemon {
 
     public White(String name, int id) {
         super(name, id, Attack, Defence, maxHealth, "White");
+
+        image = R.drawable.white;
     }
 }

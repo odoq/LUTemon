@@ -1,8 +1,8 @@
 package com.example.lutemon;
+//
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.Serializable;
-
-public class Lutemon implements Serializable {
+public class Lutemon extends AppCompatActivity{
     protected String name;
     protected String color;
     protected int attack;
@@ -11,6 +11,7 @@ public class Lutemon implements Serializable {
     protected int health;
     protected int maxHealth;
     protected int id;
+    protected int image;
 
     public Lutemon(String name, int id, int attack, int defence, int maxHealth, String color) {
         this.name = name;
@@ -30,6 +31,9 @@ public class Lutemon implements Serializable {
     public int getHealth() { return health; }
     public int getMaxHealth() { return maxHealth; }
     public int getExperience() { return experience; }
+    public int getImage() {
+        return image;
+    }
     public int getId() { return id; }
 
     public void train() {
@@ -43,3 +47,4 @@ public class Lutemon implements Serializable {
         }
     }
 }
+

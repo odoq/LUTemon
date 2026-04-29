@@ -1,5 +1,5 @@
 package com.example.lutemon;
-
+//
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -39,6 +39,7 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
         holder.lutemonDefence.setText("Puolustus: " + lutemon.getDefence());
         holder.lutemonHealth.setText("Elämä: " + lutemon.getHealth() + "/" + lutemon.getMaxHealth());
         holder.lutemonExp.setText("Kokemus: " + lutemon.getExperience());
+        holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
 
 
         if (mode.equals("training")) {

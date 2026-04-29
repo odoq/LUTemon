@@ -1,5 +1,5 @@
 package com.example.lutemon;
-
+//
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class LutemonViewHolder extends RecyclerView.ViewHolder {
-    ImageView imageView;
+    ImageView lutemonImage;
     Button trainButton;
     TextView lutemonName, lutemonAttack, lutemonDefence, lutemonHealth, lutemonExp;
 
 
     public LutemonViewHolder(@NonNull View itemView) {
         super(itemView);
-        imageView = itemView.findViewById(R.id.imageView);
+        lutemonImage = itemView.findViewById(R.id.ivLutemon);
         lutemonName = itemView.findViewById(R.id.txtLutName);
         lutemonAttack = itemView.findViewById(R.id.txtLutAttack);
         lutemonDefence = itemView.findViewById(R.id.txtLutDefence);
