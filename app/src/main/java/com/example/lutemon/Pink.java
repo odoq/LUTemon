@@ -7,5 +7,7 @@ public class Pink extends Lutemon {
 
     public Pink(String name, int id) {
         super(name, id, Attack, Defence, maxHealth, "Pink");
+
+        image = R.drawable.pink;
     }
 }

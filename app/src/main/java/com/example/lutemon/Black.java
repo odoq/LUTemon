@@ -7,5 +7,7 @@ public class Black extends Lutemon {
 
     public Black(String name, int id) {
         super(name, id, Attack, Defence, maxHealth, "Black");
+
+        image = R.drawable.black;
     }
 }

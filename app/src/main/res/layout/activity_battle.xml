@@ -25,7 +25,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerAttacker"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="211dp" />
 
     <TextView
         android:text="Puolustaja"
@@ -36,7 +36,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerDefender"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="169dp" />
 
     <Button
         android:id="@+id/startBattleButton"

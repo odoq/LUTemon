@@ -11,6 +11,7 @@ public class Lutemon extends AppCompatActivity{
     protected int health;
     protected int maxHealth;
     protected int id;
+    protected int image;
 
     public Lutemon(String name, int id, int attack, int defence, int maxHealth, String color) {
         this.name = name;
@@ -30,6 +31,9 @@ public class Lutemon extends AppCompatActivity{
     public int getHealth() { return health; }
     public int getMaxHealth() { return maxHealth; }
     public int getExperience() { return experience; }
+    public int getImage() {
+        return image;
+    }
 
     public void train() {
         this.experience++;
