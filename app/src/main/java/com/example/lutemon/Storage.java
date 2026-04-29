@@ -46,9 +46,8 @@ public class Storage {
         lutemons.put(lutemon.id, lutemon);
     }
 
-    public void removeLutemon(Lutemon lutemon) {
-        lutemons.remove(lutemon.id);
-        locations.remove(lutemon.id);
+    public void removeLutemon(int id) {
+        lutemons.remove(id);
     }
 
     public ArrayList<Lutemon> getLutemons() {

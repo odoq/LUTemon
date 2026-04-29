@@ -4,17 +4,19 @@
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="256dp"
         android:fillViewport="true">
-    <TextView
-        android:id="@+id/battleLog"
-        android:text="Valitse hyökkääjä ja puolustaja"
-        android:textSize="18sp"
-        android:padding="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/battleLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Valitse hyökkääjä ja puolustaja"
+            android:textSize="18sp" />
     </ScrollView>
     <TextView
         android:text="Hyökkääjä"

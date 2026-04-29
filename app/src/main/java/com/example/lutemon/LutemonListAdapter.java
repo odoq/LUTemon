@@ -64,6 +64,11 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
         }
     }
 
+    public void updateList(ArrayList<Lutemon> newList) {
+        this.lutemons = newList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return lutemons.size();

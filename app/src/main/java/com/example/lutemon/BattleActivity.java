@@ -15,11 +15,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class BattleActivity extends AppCompatActivity {
 
     private Lutemon attacker;
     private Lutemon defender;
     private TextView battleLog;
+    private LutemonListAdapter attackerAdapter;
+    private LutemonListAdapter defenderAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,29 +35,32 @@ public class BattleActivity extends AppCompatActivity {
 
         RecyclerView attackerList = findViewById(R.id.recyclerAttacker);
         attackerList.setLayoutManager(new LinearLayoutManager(this));
-        attackerList.setAdapter(new LutemonListAdapter(
-                this,
-                Storage.getInstance().getLutemonsByLocation("battle"),
-                "attacker"
-        ));
+        attackerAdapter = new LutemonListAdapter(this, Storage.getInstance().getLutemonsByLocation("battle"), "attacker");
+        attackerList.setAdapter(attackerAdapter);
 
         RecyclerView defenderList = findViewById(R.id.recyclerDefender);
         defenderList.setLayoutManager(new LinearLayoutManager(this));
-        defenderList.setAdapter(new LutemonListAdapter(
-                this,
-                Storage.getInstance().getLutemonsByLocation("battle"),
-                "defender"
-        ));
+        defenderAdapter = new LutemonListAdapter(this, Storage.getInstance().getLutemonsByLocation("battle"), "defender");
+        defenderList.setAdapter(defenderAdapter);
     }
 
     public void setAttacker(Lutemon l) {
         attacker = l;
-        battleLog.setText("Hyökkääjä valittu: " + l.getName());
+        if (l.getHealth() == 0) {
+            battleLog.setText("Hyökkääjä on kuollut!");
+        } else {
+            battleLog.setText("Hyökkääjä valittu: " + l.getName());
+        }
     }
 
     public void setDefender(Lutemon l) {
         defender = l;
-        battleLog.setText("Puolustaja valittu: " + l.getName());
+        if (l.getHealth() == 0) {
+            battleLog.setText("Puolustaja on kuollut!");
+        } else {
+            battleLog.setText("Puolustaja valittu: " + l.getName());
+        }
+
     }
 
     public void startBattle(View view) {
@@ -65,4 +73,11 @@ public class BattleActivity extends AppCompatActivity {
         String result = bf.fight(attacker, defender);
         battleLog.setText(result);
     }
+
+    public void updateLutemons() {
+        ArrayList<Lutemon> updatedList = Storage.getInstance().getLutemonsByLocation("battle");
+        attackerAdapter.updateList(updatedList);
+        defenderAdapter.updateList(updatedList);
+    }
+
 }
