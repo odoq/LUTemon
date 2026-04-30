@@ -48,6 +48,7 @@ public class BattleActivity extends AppCompatActivity {
         attacker = l;
         if (l.getHealth() == 0) {
             battleLog.setText("Hyökkääjä on kuollut!");
+            finish();
         } else {
             battleLog.setText("Hyökkääjä valittu: " + l.getName());
         }
@@ -57,6 +58,7 @@ public class BattleActivity extends AppCompatActivity {
         defender = l;
         if (l.getHealth() == 0) {
             battleLog.setText("Puolustaja on kuollut!");
+            finish();
         } else {
             battleLog.setText("Puolustaja valittu: " + l.getName());
         }
